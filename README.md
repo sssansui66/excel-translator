@@ -43,20 +43,18 @@ cd Master-Translator
 npm install
 ```
 
-3. 配置环境
-- 打开`server.js`文件
-- 设置你的DeepSeek API Key
-```javascript
-const DEEPSEEK_API_KEY = 'your-api-key';
-```
+3. 配置环境变量（以Vercel为例）
+   - 在Vercel后台"Project Settings"→"Environment Variables"添加：
+     - 名称：`DEEPSEEK_API_KEY`
+     - 值：你的DeepSeek API Key
 
-4. 启动服务
-```bash
-npm start
-```
+4. 本地开发（可选）
+   - 安装Vercel CLI：`npm i -g vercel`
+   - 运行本地开发环境：`vercel dev`
 
 5. 访问应用
-打开浏览器访问 http://localhost:3001
+   - 部署到Vercel后，直接访问Vercel分配的URL
+   - 本地开发时访问 http://localhost:3000 或 Vercel CLI输出的本地地址
 
 ## 使用说明
 
@@ -112,3 +110,9 @@ npm start
 ## 许可证
 
 MIT License 
+
+## 前端接口说明
+
+前端所有请求已统一为相对路径 `/api/translate`，无需指定端口或域名，兼容本地和Vercel部署。
+
+如需本地开发，推荐使用 `vercel dev` 启动本地服务。 
