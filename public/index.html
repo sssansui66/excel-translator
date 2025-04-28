@@ -92,7 +92,6 @@
     </div>
 
     <script>
-        const API_BASE_URL = 'http://localhost:3001';
         const dropZone = document.getElementById('dropZone');
         const fileInput = document.getElementById('fileInput');
         const processBtn = document.getElementById('processBtn');
@@ -159,7 +158,7 @@
                 formData.append('file', currentFile);
 
                 // fetch后端，获取blob
-                const response = await fetch(`${API_BASE_URL}/translate`, {
+                const response = await fetch('/api/translate', {
                     method: 'POST',
                     body: formData
                 });
@@ -187,12 +186,7 @@
             }
         });
 
-        downloadBtn.addEventListener('click', () => {
-            const downloadUrl = downloadBtn.getAttribute('data-download-url');
-            if (downloadUrl) {
-                window.location.href = `${API_BASE_URL}${downloadUrl}`;
-            }
-        });
+        downloadBtn.addEventListener('click', () => {});
 
         function updateProgress(percent) {
             progressFill.style.width = `${percent}%`;
